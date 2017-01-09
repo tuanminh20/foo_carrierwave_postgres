@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @team_album.team %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team_album.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @team_album.desc %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @team_album.area %>
+</p>
+
+<%= link_to 'Edit', edit_team_team_album_path(@team, @team_album) %> |
+<%= link_to 'Back', team_team_albums_path %>

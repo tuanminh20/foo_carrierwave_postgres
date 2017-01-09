@@ -1,0 +1,9 @@
+<h1>Communities#index</h1>
+<%= form_tag(team_team_albums_new_path(@team), multipart: true) do %>
+  <div class="field">
+    <%= file_field_tag :photos, multiple: true, name: "team_album[team_photos][][content]" %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Upload" %>
+  </div>
+<% end %>

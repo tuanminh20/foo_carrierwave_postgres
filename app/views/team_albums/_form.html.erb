@@ -1,0 +1,45 @@
+<%= form_for(@team_album, url: {action: "create"}) do |f| %>
+  <% if @team_album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team_album.errors.count, "error") %> prohibited this team_album from being saved:</h2>
+
+      <ul>
+      <% @team_album.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :team_id %><br>
+    <%= f.text_field :team_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br>
+    <%= f.text_field :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :area %><br>
+    <%= f.text_field :area %>
+  </div>
+  <ul>
+    <%= f.fields_for :team_photos do |photo_form| %>
+      <li>
+        <%= image_tag(photo_form.object.content_url) %>
+        <%= photo_form.label :content %>
+        <%= photo_form.file_field :content %>
+
+        <%= photo_form.label :desc %>
+        <%= photo_form.text_field :desc %>
+      </li>
+    <% end %>
+  </ul>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
